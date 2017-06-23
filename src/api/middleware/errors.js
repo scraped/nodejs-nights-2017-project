@@ -32,7 +32,7 @@ function processKnownError(ctx, err) {
 
 function processUnknownError(ctx, err) {
   err.correlationId = uuid.v1()
-  log.error(err, 'Unhandler erorr')
+  log.error(err, 'Unhandled error')
 
   if (config.env === 'production') {
     ctx.body = {
