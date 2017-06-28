@@ -53,9 +53,11 @@
     "newrelic": "^1.40.0",
     "pg": "^6.2.3",
     "pg-promise": "^5.9.0",
+    "request": "^2.81.0",
     "sendgrid": "^5.1.1",
     "sendgrid-mailer": "^1.2.1",
     "sequelize": "^4.0.0",
+    "sharp": "^0.18.1",
     "uuid": "^3.0.1"
   },
   "devDependencies": {

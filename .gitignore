@@ -3,3 +3,4 @@
 # Generated
 .nyc_output/
 coverage/
+output/
