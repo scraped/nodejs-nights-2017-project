@@ -5,6 +5,8 @@ const schema = require('./schema')
 const log = require('../../logging')
 const errors = require('../../errors')
 const auth = require('../../auth')
+const queues = require('../../queues')
+const config = require('../../config')
 
 module.exports = {
 
@@ -30,6 +32,9 @@ module.exports = {
     // Create a database record
     const user = await new db.models.User(model).save()
     const accessToken = await auth.generateAccessToken(user.id)
+
+    // Schedule welcome-email job
+    queues.get(config.queues.names.welcomeEmails).add({ userId: user.id })
 
     return {
       user,

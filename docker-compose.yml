@@ -1,7 +1,7 @@
 version: '3'
 services: 
 
-  database-postgres:
+  postgres:
     image: sameersbn/postgresql
     container_name: bookmarks-app-postgres
     environment:
@@ -12,13 +12,19 @@ services:
     volumes:
     - postgres-data:/var/lib/postgresql
 
-  database-mongo:
+  mongo:
     image: mongo:3
     container_name: bookmarks-app-mongo
     ports:
     - 27017:27017
     volumes:
     - mongo-data:/data/db
+
+  redis:
+    image: redis
+    container_name: bookmarks-app-redis
+    ports:
+    - 6379:6379
 
 volumes:
   postgres-data:

@@ -9,6 +9,8 @@
   },
   "scripts": {
     "start": "node . | ./node_modules/.bin/bunyan",
+    "start:api": "node . | ./node_modules/.bin/bunyan",
+    "start:workers": "node ./src/workers/start.js | ./node_modules/.bin/bunyan",
     "dev": "nodemon . | ./node_modules/.bin/bunyan",
     "lint": "./node_modules/.bin/eslint ./src",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --opts ./tests/mocha.opts ./tests",
@@ -35,6 +37,7 @@
   "dependencies": {
     "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
+    "bull": "^3.0.0-rc.3",
     "bunyan": "^1.8.10",
     "dotenv": "^4.0.0",
     "joi": "^10.5.2",
@@ -50,6 +53,8 @@
     "newrelic": "^1.40.0",
     "pg": "^6.2.3",
     "pg-promise": "^5.9.0",
+    "sendgrid": "^5.1.1",
+    "sendgrid-mailer": "^1.2.1",
     "sequelize": "^4.0.0",
     "uuid": "^3.0.1"
   },

@@ -59,4 +59,19 @@ module.exports = env => ({
       issuer: `com.strv.bookmarks-api.${env}`,
     },
   },
+  queues: {
+    connectionString: process.env.QUEUE_CONNECTION_STRING
+      || 'redis://127.0.0.1:6379',
+    names: {
+      welcomeEmails: 'welcome-email',
+      scraping: 'scraping',
+      imageResizing: 'image-resizing',
+    }
+  },
+  emails: {
+    apiKey: process.env.SENDGRID_API_KEY,
+    welcomeEmail: {
+      templateId: 'a8a6b1df-700b-4093-87e4-896ae0a6cdca',
+    },
+  },
 })
