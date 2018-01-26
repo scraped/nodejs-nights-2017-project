@@ -4,6 +4,11 @@
 
 const pkg = require('../../../package.json')
 
+const tokenOptions = {
+  algorithm: 'HS256',
+  issuer: `com.strv.bookmarks-api.${env}`,
+}
+
 module.exports = env => ({
   env,
   appName: pkg.name,
@@ -51,12 +56,10 @@ module.exports = env => ({
     createOptions: {
       // expires in 1h
       expiresIn: 60 * 60,
-      algorithm: 'HS256',
-      issuer: `com.strv.bookmarks-api.${env}`,
+      ...tokenOptions,
     },
     verifyOptions: {
-      algorithm: 'HS256',
-      issuer: `com.strv.bookmarks-api.${env}`,
+      ...tokenOptions
     },
   },
   queues: {
